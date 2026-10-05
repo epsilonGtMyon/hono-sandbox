@@ -7,8 +7,7 @@ import { serve } from "@hono/node-server";
 import { serveStatic } from "@hono/node-server/serve-static";
 
 import { plainApp } from "./plain/index.js";
-
-console.log(plainApp)
+import { valibotApp } from "./valibot/index.js";
 
 // --------------------------------------------------
 
@@ -18,6 +17,7 @@ app.use("*", requestId());
 app.use(logger());
 
 app.route("/api/plain", plainApp);
+app.route("/api/valibot", valibotApp);
 
 // cloudflare workers みたいにする。
 app.use("/*", serveStatic({ root: "./public" }));

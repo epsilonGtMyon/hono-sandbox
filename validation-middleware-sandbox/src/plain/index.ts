@@ -1,13 +1,13 @@
 import { Hono } from "hono";
 import { validator } from "hono/validator";
 
-const PREFIX = "/sandbox01";
+const PREFIX01 = "/sandbox01";
 const plainApp = new Hono();
 
 // ---------------------------------------------------------
 
 plainApp.get(
-  `${PREFIX}/queryValidation`,
+  `${PREFIX01}/queryValidation`,
   validator("query", (value, c) => {
     const errors: string[] = [];
 
@@ -49,7 +49,7 @@ plainApp.get(
 );
 
 plainApp.post(
-  `${PREFIX}/postJsonValidation`,
+  `${PREFIX01}/postJsonValidation`,
   validator("json", (value, c) => {
     const errors: string[] = [];
 
