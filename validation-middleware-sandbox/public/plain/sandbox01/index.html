@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>plain sandbox01</title>
+    <script src="./script.js" type="module"></script>
+  </head>
+  <body>
+    <h1>plain sandbox01</h1>
+
+    <main>
+      <p>
+        validator ミドルウェアを試す。特にサードパーティのライブラリは使わずピュアなものを実装。
+      </p>
+
+      <div>
+        value01:
+        <input type="text" id="value01" />
+      </div>
+      <div>
+        value02:
+        <input type="text" id="value02" />
+      </div>
+
+      <div>
+        <button id="queryValidationButton">queryValidation</button>
+        <button id="postJsonValidationButton">postJsonValidation</button>
+      </div>
+    </main>
+  </body>
+</html>
