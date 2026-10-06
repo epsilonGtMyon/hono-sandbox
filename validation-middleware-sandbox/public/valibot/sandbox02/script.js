@@ -8,7 +8,8 @@ const postJsonValidationButtonElem = document.getElementById(
 const value01Elem = document.getElementById("value01");
 const value02Elem = document.getElementById("value02");
 const resultElem = document.getElementById("result");
-const PREFIX = "/api/plain/sandbox01";
+
+const PREFIX = "/api/valibot/sandbox02";
 
 function applyResult(text) {
   resultElem.value = text;

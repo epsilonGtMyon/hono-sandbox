@@ -1,3 +1,4 @@
+import { toDebugInfo } from "../../common/script/response.js";
 const queryValidationButtonElem = document.getElementById(
   "queryValidationButton",
 );
@@ -6,8 +7,13 @@ const postJsonValidationButtonElem = document.getElementById(
 );
 const value01Elem = document.getElementById("value01");
 const value02Elem = document.getElementById("value02");
+const resultElem = document.getElementById("result");
 
 const PREFIX = "/api/valibot/sandbox01";
+
+function applyResult(text) {
+  resultElem.value = text;
+}
 
 queryValidationButtonElem.addEventListener("click", async () => {
   const param = new URLSearchParams({
@@ -26,17 +32,14 @@ queryValidationButtonElem.addEventListener("click", async () => {
     },
   );
 
+  const debugInfo = await toDebugInfo(response);
   if (!response.ok) {
     console.error("Failed to fetch data");
-    window.alert(`リクエスト失敗しました。
-status: ${response.status}
-responseText: ${await response.text()}
-      `);
+    applyResult(`リクエスト失敗しました。\r\n${debugInfo}`);
     return;
   }
 
-  const data = await response.text();
-  window.alert(`リクエスト成功: ${data}`);
+  applyResult(`リクエスト成功: \r\n${debugInfo}`);
 });
 
 postJsonValidationButtonElem.addEventListener("click", async () => {
@@ -54,17 +57,14 @@ postJsonValidationButtonElem.addEventListener("click", async () => {
     body: JSON.stringify(body),
   });
 
+  const debugInfo = await toDebugInfo(response);
   if (!response.ok) {
     console.error("Failed to fetch data");
-    window.alert(`リクエスト失敗しました。
-status: ${response.status}
-responseText: ${await response.text()}
-      `);
+    applyResult(`リクエスト失敗しました。\r\n${debugInfo}`);
     return;
   }
 
-  const data = await response.text();
-  window.alert(`リクエスト成功: ${data}`);
+  applyResult(`リクエスト成功: \r\n${debugInfo}`);
 });
 
 export {};
