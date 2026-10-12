@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sandbox01</title>
+    <script src="./script.js" type="module"></script>
+  </head>
+  <body>
+    <main>
+      <div>
+        <p>get GETの場合は特にcsrfミドルウェアのチェックはされない</p>
+        <button id="get1Button">get1</button>
+      </div>
+      <div>
+        <p>
+          URLSearchParamsをpost(application/x-www-form-urlencoded)
+          CSRFミドルウェアのチェックがされる
+        </p>
+        <button id="post1Button">post1</button>
+      </div>
+      <div>
+        <p>
+          FormDataをpost(multipart/form-data) CSRFミドルウェアのチェックがされる
+        </p>
+        <button id="post2Button">post2</button>
+      </div>
+      <div>
+        <p>
+          jsonをpost(application/json)
+          JSONの場合は特にcsrfミドルウェアのチェックはされない
+        </p>
+
+        <button id="post3Button">post3</button>
+      </div>
+    </main>
+  </body>
+</html>
