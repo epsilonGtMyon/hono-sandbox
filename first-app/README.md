@@ -4,5 +4,5 @@
 
 
 ```
-npm create hono@latest first app
+npm create hono@latest first-app
 ```
